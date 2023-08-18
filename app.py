@@ -81,4 +81,4 @@ demo = gr.Interface(
         gr.Label(label="Customer-Sentiment"),
         gr.Label(label="ChatGPT-Intent"),
         gr.Label(label="Customer-Intent")])
-demo.launch()
+demo.launch(share=True)
