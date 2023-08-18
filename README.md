@@ -1,6 +1,19 @@
 # SentimentGPT
 Zero-shot sentiment &amp; intent analysis with LLMs
 
+
+## Installation
+
+### Installing sentimentgpt as Python Package
+```bash
+pip install -e .
+```
+
+### Install requirements
+```bash
+pip install -r requirements.txt
+```
+
 ## Gradio App
 Modify `app.py` script's `data_file` variable with correct name of json file `(e.g.data/data.json)`. 
 

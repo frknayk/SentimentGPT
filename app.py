@@ -1,9 +1,8 @@
-import os
-from sentimentgpt.classifier import PipelineSIGPT
-import gradio as gr
 import sys
-import numpy as np
 import json
+import gradio as gr
+import numpy as np
+from sentimentgpt.classifier import PipelineSIGPT
 
 # # Read from args/ui
 candidate_labels_sentiment = ['positive', 'neutral', 'negative']
