@@ -12,6 +12,9 @@ App will be running at LOCAL URL: http://127.0.0.1:7860
 
 `Note: Click **Generate** button to start the app`
 
+<!-- ![Web App Overview](files/app_overview.png | width=50) -->
+<img src="files/app_overview.png" alt="Web App Overview" width="400" height=400>
+
 ## Prompt to create dataset
 To create own dataset feel free to use following prompt:
 ```text

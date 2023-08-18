@@ -29,21 +29,27 @@ def dict_to_prob(conversation_dict):
 idx = 0
 def zeroShotClassification():
     global idx
-    
     if idx >= len(result):
         sample_dict_sentiment = dict(
             zip(candidate_labels_sentiment, 
-            list(np.random.rand(len(candidate_labels_sentiment),))))
+            list(np.ones((len(candidate_labels_sentiment),))*-1) )
+            )
         sample_dict_intent = dict(
             zip(candidate_labels_intention, 
-            list(np.random.rand(len(candidate_labels_intention),))))
+            list(np.ones((len(candidate_labels_sentiment),))*-1)))
         sentiment_bot = sample_dict_sentiment
         sentiment_customer = sample_dict_sentiment
         intent_bot = sample_dict_intent
         intent_customer = sample_dict_intent
-        bot_msg = "-----END OF ANALYZE----"
         human_msg = "-----END OF ANALYZE----"
-
+        bot_msg = "restart the application with different conversation history"
+        return [
+            human_msg,
+            bot_msg,
+            sentiment_bot,
+            sentiment_customer,
+            intent_bot, 
+            intent_customer]
 
     # Get message with index
     conversation = result[str(idx)]
