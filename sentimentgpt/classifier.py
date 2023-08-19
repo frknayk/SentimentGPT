@@ -13,15 +13,21 @@ class PipelineSIGPT(object):
 
     def __init__(self, config_zs: dict):
         ###### Copy config files
-        # Remove if exists
-        remove_configs_from_model()
-        copy_configs_to_model()
+        self.set_pipe()
         self.zs_classifer = ZeroShotClassifer(
             candidate_labels_intention=config_zs['candidate_labels_intention'],
             candidate_labels_sentiment=config_zs['candidate_labels_sentiment'])
 
-    def analyze_data(self, data_file: str):
-        """Analyze and return dictionary of the analysis.
+    def set_pipe(self):
+        """Remove existing confis,copy updated ones"""
+        copy_configs_to_model()
+
+    def del_pipe(self):
+        """Remove copied config files"""
+        remove_configs_from_model()
+
+    def read_analyze_data(self, data_file: str):
+        """Read conversation data, analyze and return the analysis.
 
         Parameters
         ----------
@@ -33,25 +39,32 @@ class PipelineSIGPT(object):
         dict
             Dict of every content's analyze with scores
         """
-        ###### Copy config files
-        # Remove if exists
-        remove_configs_from_model()
-        copy_configs_to_model()
         ###### Read data
         conversation = read_data_file(data_file)
         if conversation is None:
             raise FileNotFoundError
         ###### Analyze
-        # Hash-map stores conversation. 
-        # Each conversation can be achieved by index 
         conversation_with_labels = {}
         num_samples = len(conversation["conversation"])
         for idx, interaction in enumerate(conversation["conversation"]):
             print(f"Analyzing the conversation, progress: {idx}/{num_samples}")
-            conversation_with_labels[idx] = self.zs_classifer.classify(interaction)
-        ###### Remove copied config files
-        remove_configs_from_model()
+            conversation_with_labels[idx] = self.analyze_interaction(interaction)
         return conversation_with_labels
+
+    def analyze_interaction(self, interaction: dict):
+        """Analyze provided interaction(1 piece of chatbot-human interaction).
+
+        Parameters
+        ----------
+        interaction : str
+            Read interaction data.
+
+        Returns
+        -------
+        dict
+            Dict of every content's analyze with scores
+        """    
+        return self.zs_classifer.classify(interaction)
 
 
 class ZeroShotClassifer(object):
