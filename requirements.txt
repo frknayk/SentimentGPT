@@ -1,4 +1,5 @@
-transformers
 torch
+transformers
 gradio
 numpy
+streamlit
