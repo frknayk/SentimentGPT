@@ -16,6 +16,13 @@ pipe("Hello! I'm thinking of buying the iPhone 14, but I'm not sure which model 
 )
 ```
 
+## For More Information About Zero-Shot Learning and Deployment
+
+- Zero-Shot Learning: [ZeroShot.md](ZeroShot.md)
+
+- Integrating speech-to-text using gRPC [SpeechToTextGRPC.md](SpeechToTextGRPC.md)
+
+
 ## Installation
 
 ### Installing sentimentgpt as Python Package
