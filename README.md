@@ -80,6 +80,4 @@ App will be running at LOCAL URL: http://127.0.0.1
 
 
 ## todo-list: 
-- Make prompt deterministic, and produces json everytime in the same format
 - speech2text API
-- gRPC
