@@ -6,7 +6,7 @@ Zero-shot sentiment &amp; intent analysis with LLMs
 Perform sentiment and intent analysis with pre-trained LLMs. 
 The repo is intentionally built to keep pre-trained LLMs model files in local file system.
 
-- Example of `sentimentgpt` python-package usage (run after installation):
+An example of `sentimentgpt` python-package usage (run after [installation](#installation)):
 
 ```Python
 from sentimentgpt.classifier import PipelineSIGPT
